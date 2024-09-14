@@ -6,10 +6,14 @@ import SearchList from './SearchList'
 const Body = () => {
      const isToggle = useSelector((store) => store.toggle.toggleHam);
      const isPresent = useSelector((store) => store.toggle.suggestions);
+     const toggleSuggestion = useSelector((store) => store.toggle.toggleSuggestion);
     return (
         <>
         {isToggle && <NavBar />}
-        { isPresent.length > 0 && <SearchList /> }
+        { 
+            toggleSuggestion &&  (isPresent.length > 0 && <SearchList /> )
+        }
+       
         <Outlet />
         </>
     )

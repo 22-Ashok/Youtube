@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { Menu, AccountCircle, Search } from '@mui/icons-material'
 import ytLogo from '../logo/youtube.svg'
 import { useDispatch,useSelector } from 'react-redux';
-import { togglefunction, searchSuggestions } from '../redux/slices/toggleSlice'
+import { togglefunction, searchSuggestions, toggleSuggestionList } from '../redux/slices/toggleSlice'
 import { addSearchList } from '../redux/slices/searchSlice'
 
 const Header = () => {
@@ -44,6 +44,8 @@ const Header = () => {
         <div className='flex items-center w-5/12 mr-5'>
           <input 
             type='text' 
+            onFocus={() => dispatch(toggleSuggestionList()) }
+            onBlur={() => dispatch(toggleSuggestionList()) }
             className='w-full border-2 border-r-0 rounded-l-full px-4 py-1 focus:outline-none' 
             placeholder='Search here...'
             value={searchQuerry}

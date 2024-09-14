@@ -1,7 +1,8 @@
 import { useSelector } from "react-redux"
 
 const SearchList = () => {
-    const suggestions = useSelector((store) => store.toggle.suggestions)
+    const suggestions = useSelector((store) => store.toggle.suggestions);
+    
     return (
         <div className=' ml-[33%] mt-20 bg-[#ffffff] min-w-[400px] fixed rounded-lg'>
             <ul className='font-semibold'>

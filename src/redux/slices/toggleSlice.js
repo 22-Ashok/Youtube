@@ -4,7 +4,8 @@ const toggleSlice = createSlice({
     name:'toggle',
     initialState:{
         toggleHam: true,
-        suggestions:[]
+        suggestions:[],
+        toggleSuggestion: false,
     },
 
     reducers:{
@@ -15,10 +16,14 @@ const toggleSlice = createSlice({
 
         searchSuggestions: (state,action) => {
              state.suggestions = action.payload;
-        } 
+        } , 
+
+        toggleSuggestionList: (state) => {
+            state.toggleSuggestion = !state.toggleSuggestion;
+        }
       
     }
 })
 
 export default toggleSlice.reducer
-export const{ togglefunction, searchSuggestions } = toggleSlice.actions
+export const{ togglefunction, searchSuggestions, toggleSuggestionList } = toggleSlice.actions
